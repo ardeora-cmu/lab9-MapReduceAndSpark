@@ -23,6 +23,8 @@ If you number is 17 then your login ID is student017.
 If your number is 98 then your login ID is student098.
 If you number is 102 then your login ID is student102.
 
+Your initial password will be provided in class.
+
 Here are two links to examine what is going on on the cluster:
 
 Overview of the cluster:
@@ -44,7 +46,6 @@ Find your completed job in the list. On the left, click on the job ID.
 Select the map or reduce task.
 Select the task number and then the task logs.
 
-Your initial password will be provided in class.
 
 Before doing this lab, you will need to have the ability to run a secure
 shell. You may use putty or some other secure telnet client.
@@ -72,23 +73,26 @@ Note too that there is a Unix help sheet on Canvas. It is named "UNIX Commands Q
 Note too that we have provided a short linux tutorial. See Canvas and look for
 LinuxTutorial.mp4.
 
-1.  Log in to the Hadoop cluster by using SSH to connect.
+1.  Log in to the Hadoop cluster by using SSH to connect. Note:
+the ID "mm6" is my ID. You need to change "mm6" to your ID.
+
 ```
-ssh -l mm6 heinz-jumbo.heinz.cmu.local
+ssh -l mm6  jumbo2.heinz.cmu.local
+
 ```
 
-Note: If this ssh fails, it may be a problem with your DNS configuration. Use an IP address instead of the name. Ask a colleague to ping the name (heinz-jumbo.heinz.cmu.local) to see
+Note: If this ssh fails, it may be a problem with your DNS configuration. Use an IP address instead of the name. Ask a colleague to ping the name (jumbo2.heinz.cmu.local) to see
 the IP address.
 
 On a MAC, if you receive the error message
 "No Matching Host Key Type Found"
 then try the following (replace mm6 with your own ID):
 ```
-ssh -oHostKeyAlgorithms=+ssh-rsa mm6@heinz-jumbo.heinz.cmu.local
+ssh -oHostKeyAlgorithms=+ssh-rsa mm6@jumbo2.heinz.cmu.local
 ```
 
 You must change your password now. Use the "passwd" command. PLEASE remember this
-new password.
+new password. Again, your initial password is provided in class.
 
 Your password requires a capital letter, a number and one of
 the following characters: !@#$%^&*()_-+=.
@@ -109,15 +113,17 @@ mkdir output
 
 Verify this with the "ls" command.
 
-4.  For testing, calculate PI with the following command:
+4.  For testing, calculate PI with the following commands:
 
 ```
-hadoop jar /usr/local/hadoop/hadoop-examples-*.jar pi 10 100000
+
+hadoop jar /usr/local/hadoop/share/hadoop/mapreduce/hadoop-mapreduce-examples-3.2.1.jar pi 10 100000
 
 ```
 Twenty mappers may be employed with the following:
 ```
-hadoop jar /usr/local/hadoop/hadoop-examples-*.jar pi 20 100000
+hadoop jar /usr/local/hadoop/share/hadoop/mapreduce/hadoop-mapreduce-examples-3.2.1.jar pi 20 100000
+
 ```
 
 Verify: Did the system compute a reasonable value of PI?
