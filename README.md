@@ -35,9 +35,10 @@ http://jumbo2.heinz.cmu.local:8050/
 
 
 Output from System.out.println() statements is available in log files.  
-To view the log visit:
+To view the logs, visit Tools/Local Logs on the the ResourceManager page at this URL:
 
-http://heinz-jumbo.heinz.cmu.local:50030/jobtracker.jsp
+http://jumbo2.heinz.cmu.local:8050/
+
 
 Find your completed job in the list. On the left, click on the job ID.
 Select the map or reduce task.
