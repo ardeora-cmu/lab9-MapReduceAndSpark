@@ -144,10 +144,12 @@ Verify with "pwd".
 
 Run the pico editor and create a file called "test".
 
+```
 pico test
+```
 
 Copy and paste this file into test. By "this file" we mean the document you
-are currently reading. Use ^o followed by ^x. The ^ symbol is the control key.
+are currently reading. In pico, use ^o followed by ^x. The ^ symbol is the control key.
 
 ^o  is used to write out the file to disk.
 ^x is used to exit the pico editor.
@@ -156,14 +158,16 @@ are currently reading. Use ^o followed by ^x. The ^ symbol is the control key.
 
 ```
 cd ..
-hadoop dfs -copyFromLocal /home/mm6/input /user/mm6/input
+hdfs dfs -copyFromLocal /home/mm6/input /user/mm6/input
+
 
 ```
 
 8. Look in the HDFS input directory and see if test is there.
 
 ```
-hadoop dfs -ls /user/mm6/input
+hdfs dfs -ls /user/mm6/input
+
 ```
 
 9. Run word count using MapReduce:
