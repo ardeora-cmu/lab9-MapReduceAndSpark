@@ -25,6 +25,12 @@ If you number is 102 then your login ID is student102.
 
 Here are two links to examine what is going on on the cluster:
 
+http://jumbo2.heinz.cmu.local:9870/
+
+http://jumbo2.heinz.cmu.local:8050/
+
+The next two links are old:
+
 http://heinz-jumbo.heinz.cmu.local:50030/
 
 http://heinz-jumbo.heinz.cmu.local:50070/
