@@ -158,7 +158,7 @@ are currently reading. In pico, use ^o followed by ^x. The ^ symbol is the contr
 
 ```
 cd ..
-hdfs dfs -copyFromLocal /home/mm6/input /user/mm6/input
+hdfs dfs -copyFromLocal /home/mm6/input/test /user/mm6/input/test
 
 
 ```
@@ -169,52 +169,78 @@ hdfs dfs -copyFromLocal /home/mm6/input /user/mm6/input
 hdfs dfs -ls /user/mm6/input
 
 ```
-
-9. Run word count using MapReduce:
+9. You can view the file on HDFS with this command:
 
 ```
-hadoop jar /usr/local/hadoop/hadoop-examples-*.jar wordcount /user/mm6/input/test  /user/mm6/output
+hdfs dfs -cat /user/mm6/input/test
+
+```
+10. Delete the output directory on HDFS:
+
+```
+hdfs dfs -rm -r /user/mm6/output
+
+```
+
+11. Run word count using MapReduce:
+
+```
+hadoop jar /usr/local/hadoop/share/hadoop/mapreduce/hadoop-mapreduce-examples-3.2.1.jar wordcount /user/mm6/input /user/mm6/output
+
 
 ```
 Note: we are counting all of the words in all of the files in the input directory.
 In this case, we only have one file, i.e., the file named 'test'.
 
 If you get an error then you may have to remove an old output directory with
+
 ```
-hadoop dfs -rmr /user/mm6/output
+hdfs dfs -rm -r /user/mm6/output
+
 ```
 
 And run word count again.
 
-10. See if the result files are there:
+12. See if the result files are there:
 ```
-hadoop dfs -ls /user/mm6/output
-```
-11. Place the results in the output folder in your /home/mm6/output directory.
-```
-hadoop dfs -getmerge /user/mm6/output ~/output/
-```
-
-12. Examine the results:
-```
-cat ~/output/output
-```
-
-13. How many times did the word 'the' appear in the file? __________
-
-14. How many time did the word 'you' appear in the file? ________
-
-15. You may view what jobs are running on the cluster with the command:
+hdfs dfs -ls /user/mm6/output
 
 ```
-	hadoop job -list
+13. View the output file:
+```
+hdfs dfs -cat /user/mm6/output/part-r-00000
+```
+14. Place the results in the output folder in your /home/mm6/output directory.
+```
+hdfs dfs -getmerge /user/mm6/output /home/mm6/output/mergedfile.txt
+
 ```
 
-16. You can kill a job that is not making progress. Do this if you need to. You will need
-the Job ID.
+15. Examine the results:
+```
+cat /home/mm6/output/mergedfile.txt
 
 ```
-	bin/hadoop job -kill job_201310251241_0754
+
+16. How many times did the word 'the' appear in the file? __________
+
+17. How many time did the word 'you' appear in the file? ________
+
+18. You may view what jobs are running on the cluster with the command:
+
+```
+  mapred job -list
+
+
+
+```
+
+19. You can kill a job that is not making progress. Do this if you need to. You will need
+the Job ID from the mapred job -list command.
+
+```
+mapred job -kill <job_id>
+
 
 ```
 
