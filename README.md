@@ -97,7 +97,7 @@ new password. Again, your initial password is provided in class.
 Your password requires a capital letter, a number and one of
 the following characters: !@#$%^&*()_-+=.
 
-:checkered_flag:**Now, complete the 'quiz' that is on Canvas so that your password is available to the TA's for the course. WE NEED THIS TO GRADE YOUR PROJECT 5. The quiz is called "Cluster Password Quiz". Show your TA. This is the 1/4 point checkpoint.**
+### :checkered_flag:** Now, complete the 'quiz' that is on Canvas so that your password is available to the TA's for the course. WE NEED THIS TO GRADE YOUR PROJECT 5. The quiz is called "Cluster Password Quiz".**
 
 It is highly suggested that you continue and do the following steps.
 
@@ -224,9 +224,9 @@ cat /home/mm6/output/mergedfile.txt
 
 ```
 
-16. How many times did the word 'the' appear in the file? __________
+16. How many times did the word 'the' appear in the file?
 
-17. How many time did the word 'you' appear in the file? ________
+17. How many time did the word 'you' appear in the file?
 
 18. You may view what jobs are running on the cluster with the command:
 
@@ -253,6 +253,8 @@ JDK 17 has been tried several times with no luck.
 
 Please download and install JDK 8 for the remainder of this lab.
 
+There is a Canvas quiz named Lab9_Quiz that needs to be completed. You may complete the Lab9_Quiz when you have finished with this part of the lab.
+
 0. Run IntelliJ and select File New project
 1. Name the project Spark-Example-Lab9
 2. Choose Java as the language
@@ -262,7 +264,7 @@ Please download and install JDK 8 for the remainder of this lab.
    a. Right click the project node and select Open Module Settings
    b. Choose Libraries/+/From Maven
    c. Enter org.apache.spark:spark-core_2.10:1.0.0
-      Leave Transitive dependancies checked. 
+      Leave Transitive dependancies checked.
    d. Select OK, OK, Apply, OK
 6. Drill down into src and right click the Java node and select new Java class
 7. Create a Java class named WordCounter.java with the following content:
@@ -334,4 +336,4 @@ named "CountData" in your working directory. Spark does this so that a large out
 not accidentally erased.
 
 
-### :checkered_flag: For credit for this part (3/4 point), show your TA that you have a file called part-00000 and it lists a word count of this file.
+### :checkered_flag: Answer the 5 questions in the Canvas quiz named Lab9_Quiz.
