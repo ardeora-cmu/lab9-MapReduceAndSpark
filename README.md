@@ -60,10 +60,10 @@ The TA's will be using time stamps on files to verify on-time or late submission
 So, please do not perform any unintended work after the deadline for an assignment.
 
 Before beginning, I highly recommend that you make a bulk replacement in this file. That
-is, I would suggest that you change every occurrence of the string "mm6" with the
+is, I would suggest that you change every occurrence of the string "student031" with the
 user ID that you have been assigned, e.g., student003. You may do this with a local editor. In that way
 the commands that you will use below will be tailored to your machine. For example,
-student110 would change every occurrence of the string "mm6" to the string
+student110 would change every occurrence of the string "student031" to the string
 "student110". This will prevent common typing errors. It will allow you to copy and
 paste commands.
 
@@ -75,10 +75,10 @@ Note too that we have provided a short linux tutorial. See Canvas and look for
 LinuxTutorial.mp4.
 
 1.  Log in to the Hadoop cluster by using SSH to connect. Note:
-the ID "mm6" is my ID. You need to change "mm6" to your ID.
+the ID "student031" is my ID. You need to change "student031" to your ID.
 
 ```
-ssh -l mm6  jumbo2.heinz.cmu.local
+ssh -l student031  jumbo2.heinz.cmu.local
 
 ```
 
@@ -86,9 +86,9 @@ Note: If this ssh fails, it may be a problem with your DNS configuration. Use an
 
 On a MAC, if you receive the error message
 "No Matching Host Key Type Found"
-then try the following (replace mm6 with your own ID):
+then try the following (replace student031 with your own ID):
 ```
-ssh -oHostKeyAlgorithms=+ssh-rsa mm6@jumbo2.heinz.cmu.local
+ssh -oHostKeyAlgorithms=+ssh-rsa student031@jumbo2.heinz.cmu.local
 ```
 
 You must change your password now. Use the "passwd" command. PLEASE remember this
@@ -101,10 +101,10 @@ the following characters: !@#$%^&*()_-+=.
 
 It is highly suggested that you continue and do the following steps.
 
-2.  Your current directory is /home/mm6. Verify this with the "pwd" command.
+2.  Your current directory is /home/student031. Verify this with the "pwd" command.
 
 3.  Create a directory named "input" and one named "output" in your
-    /home/mm6 directory.
+    /home/student031 directory.
 
 ```
 mkdir input
@@ -135,7 +135,7 @@ Verify: Check port 8050. Did your job run to completion?
     to the cluster.
 
 6.  For now, simply construct a text file (pico or vi) and place it under your
-    /home/mm6/input directory.
+    /home/student031/input directory.
 
 ```
 cd input
@@ -159,7 +159,7 @@ are currently reading. In pico, use ^o followed by ^x. The ^ symbol is the contr
 
 ```
 cd ..
-hdfs dfs -copyFromLocal /home/mm6/input/test /user/mm6/input/test
+hdfs dfs -copyFromLocal /home/student031/input/test /user/student031/input/test
 
 
 ```
@@ -167,26 +167,26 @@ hdfs dfs -copyFromLocal /home/mm6/input/test /user/mm6/input/test
 8. Look in the HDFS input directory and see if test is there.
 
 ```
-hdfs dfs -ls /user/mm6/input
+hdfs dfs -ls /user/student031/input
 
 ```
 9. You can view the file on HDFS with this command:
 
 ```
-hdfs dfs -cat /user/mm6/input/test
+hdfs dfs -cat /user/student031/input/test
 
 ```
 10. Delete the output directory on HDFS:
 
 ```
-hdfs dfs -rm -r /user/mm6/output
+hdfs dfs -rm -r /user/student031/output
 
 ```
 
 11. Run word count using MapReduce:
 
 ```
-hadoop jar /usr/local/hadoop/share/hadoop/mapreduce/hadoop-mapreduce-examples-3.2.1.jar wordcount /user/mm6/input /user/mm6/output
+hadoop jar /usr/local/hadoop/share/hadoop/mapreduce/hadoop-mapreduce-examples-3.2.1.jar wordcount /user/student031/input /user/student031/output
 
 
 ```
@@ -196,7 +196,7 @@ In this case, we only have one file, i.e., the file named 'test'.
 If you get an error then you may have to remove an old output directory with
 
 ```
-hdfs dfs -rm -r /user/mm6/output
+hdfs dfs -rm -r /user/student031/output
 
 ```
 
@@ -205,22 +205,22 @@ And run word count again.
 12. We want to see the output. See if the result files have been produced:
 
 ```
-hdfs dfs -ls /user/mm6/output
+hdfs dfs -ls /user/student031/output
 
 ```
 13. View the output file:
 ```
-hdfs dfs -cat /user/mm6/output/part-r-00000
+hdfs dfs -cat /user/student031/output/part-r-00000
 ```
-14. But we want to copy the output to our directory - not the directory that HDFS provides. Place the results in the output folder in your /home/mm6/output directory.
+14. But we want to copy the output to our directory - not the directory that HDFS provides. Place the results in the output folder in your /home/student031/output directory.
 ```
-hdfs dfs -getmerge /user/mm6/output /home/mm6/output/mergedfile.txt
+hdfs dfs -getmerge /user/student031/output /home/student031/output/mergedfile.txt
 
 ```
 
 15. Examine the results:
 ```
-cat /home/mm6/output/mergedfile.txt
+cat /home/student031/output/mergedfile.txt
 
 ```
 
